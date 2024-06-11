@@ -22,3 +22,20 @@ EXPOSE 8000
 # Run Django
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
 ```
+
+### Docker Compose
+```
+version: '3.10'
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8001
+
+    volumes:
+      - .:/app
+
+    ports:
+      - "8001:8001" 
+
+```
